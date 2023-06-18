@@ -8,11 +8,16 @@ import {
 } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import StudentPage from "./pages/dashboard/StudentPage";
-import StudentContent from "./contents/StudentContent";
+
 import DashboardPageLayout from "./layouts/Dashboard";
-import QuestionnairePage from "./pages/dashboard/QuestionairePage";
+
 import ImageAnalysis from "./pages/dashboard/ImageAnalysis";
-import AssessmentResultsPage from "./pages/dashboard/AssessmentResultsPage";
+
+import EventsPage from "./pages/dashboard/EventsPage";
+import ClassPage from "./pages/dashboard/ClassPage";
+import MainDashboard from "./pages/dashboard/MainDashboard";
+import RegisterList from "./pages/Attendance/RegisterList";
+import Attendance from "./layouts/Attendance";
 
 // import ContactPage from './components/ContactPage';
 
@@ -23,10 +28,17 @@ const router = createHashRouter(
       <Route
         path="/dashboard"
         element={<DashboardPageLayout />}>
-          <Route path="" element={<StudentPage />} />
-          <Route path="questionaire" element={<QuestionnairePage />} />
-          <Route path="analysis" element={<ImageAnalysis />} />
-          <Route path="assessment" element={<AssessmentResultsPage />} />
+          <Route path="" element={<MainDashboard />} />
+          <Route path="myEvents" element={<EventsPage />} />
+          <Route path="classes" element={<ClassPage />} />
+          <Route path="students" element={<StudentPage />} />
+           
+          
+      </Route>
+      <Route path="/event"
+          element={<Attendance />} >
+            <Route path="" element={<RegisterList />} />
+            
         </Route>
       
     </Route>

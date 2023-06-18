@@ -1,103 +1,53 @@
-import { React, useState } from "react";
-import MoodTrendsGraph from "../../components/graphs/MoodTrendsGraph";
-import AssessmentResultsGraph from "../../components/graphs/AssesmentResultsGraph";
-import SummeryWidget from "../../components/widgets/SummeryWidget.jsx";
-import OngoingClasses from "../../components/OngoingClasses";
-import NotificationWidget from "../../components/widgets/NotificationWidget";
-import ClassStudents from "../../components/ClassStudents";
+import React, { useState } from 'react';
+import banner from '../../assets/bg.jpg'
+import ClassStudents from '../../components/ClassStudents';
+import StudentForm from '../../components/forms/StudentForm';
+
+
 
 const StudentPage = () => {
-  const moodTrendData = [
-    { rating: 3, date: "2023-06-01" },
-    { rating: 4, date: "2023-06-02" },
-    { rating: 5, date: "2023-06-03" },
-    // Add more mood data objects as needed
-  ];
-
-  const assessmentData = {
-    labels: ["Assessment 1", "Assessment 2", "Assessment 3"],
-    scores: [85, 92, 78],
-  };
-
-  const summaryItems = [
-    {
-      title:'Total Events',
-      value:'23'
-    },
-    {
-      title:'Total Students',
-      value:'300'
-    }
-    ,
-    {
-      title:'Total Classes',
-      value:'300'
-    },
-    {
-      title:'Total Attendants',
-      value:'300'
-    }
-  ]
+  const [events, setEvents] = useState([
+    { id: 1, name: 'Event 1' },
+    { id: 2, name: 'Event 2' },
+    { id: 2, name: 'Event 2' },
+    { id: 2, name: 'Event 2' },
+    // Add more events as needed
+  ]);
 
   const students = [
-    { id: 1, name: 'John Doe', index: '03210808123', email: 'johndoe@gmail.com', phone: '0555222219' },
-    { id: 2, name: 'John Doe', index: '03210808123', email: 'johndoe@gmail.com', phone: '0555222219' },
-    { id: 3, name: 'John Doe', index: '03210808123', email: 'johndoe@gmail.com', phone: '0555222219' },
-    ]
+    { id: 1, name: 'John Doe', index: '03210808123', programme:'Computer Science', level:'100', phone: '0555222219' },
+    { id: 2, name: 'John Doe', index: '03210808123', programme:'Computer Science', level:'100', phone: '0555222219' },
+    { id: 3, name: 'John Doe', index: '03210808123', programme:'Computer Science', level:'100', phone: '0555222219' },
+    { id: 1, name: 'John Doe', index: '03210808123', programme:'Computer Science', level:'100', phone: '0555222219' },
+    { id: 2, name: 'John Doe', index: '03210808123', programme:'Computer Science', level:'100', phone: '0555222219' },
+    { id: 3, name: 'John Doe', index: '03210808123', programme:'Computer Science', level:'100', phone: '0555222219' },
+]
+  const handleCreateEvent = () => {
+    // Logic to create a new event
+    // Update the 'events' state with the new event
+  };
+
   return (
-    <>
-      <div className="container mx-auto py-8 px-4 grid gap-3 grid-cols-3">
-        <div className="col-span-2">
-        <div className="bg-white p-4 w-full grid gap-3 md:grid-cols-4 my-4 rounded-lg">
-          {summaryItems.map((item, index)=>(
-            <SummeryWidget title={item.title} value={item.value} />
-          ))}
-          
-        </div>
-        {/* <!-- Add your dashboard content here --> */}
-        <div className="grid grid-cols-1   gap-4">
-          {/* <!-- Card 1: Mood Trends --> */}
-          <div className="bg-white shadow-md rounded-md p-4">
-            <h2 className="text-xl text-gray-700 font-bold mb-4">Event Schedule</h2>
-            <p className="text-gray-700 mb-2">
-              Track and visualize your class over time.
-            </p>
-            {/* <!-- Add mood trend chart or visualizations here --> */}
-            <div className="lg:h-1/2 h-64">
-              <OngoingClasses />
-            </div>
-          </div>
+    <div className="container py-8 md:px-4 grid grid-cols-1 gap-3 lg:grid-cols-3">
+    <div className="md:col-span-2">
+    <div className="bg-white p-4 w-full my-4 rounded-lg">
+    <div className='w-full flex'>
+    <h2 className='text-3xl fot-bold text-gray-800 w-1/2 inline'>All Students</h2>
+    <div className='flex gap-3'>
+        <button className='border px-4 py-1 rounded'>Filter By</button>
+        <button className='border px-4 py-1 rounded'>Sort By</button>
+    </div>
+    </div>
 
-          {/* <!-- Card 2: Assessment Results --> */}
-          <div className="bg-white shadow-md rounded-md p-4">
-            <h2 className="text-xl font-bold mb-4">Students</h2>
-            <p className="text-gray-700 mb-2">
-              View all students of your class
-            </p>
-            {/* <!-- Add assessment results and progress information here --> */}
-            <div className="w-full">
-             <ClassStudents students={students}/>
-            </div>
-          </div>
-
-        
-        </div>
-        </div>
-        <div className="">
-                {/* <!-- Card 3: Recommendations --> */}
-          <div className="bg-white shadow-md rounded-md p-4">
-            <h2 className="text-xl font-bold mb-4">Notifications</h2>
-            <p className="text-gray-700 mb-2">
-             Stay up to date with the notifications.
-            </p>
-
-            <div className="grid grid-cols-1  gap-4">
-              <NotificationWidget />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <div className='mt-8'>
+       <ClassStudents students={students} />
+    </div>
+    </div>
+    
+      
+    </div>
+    <StudentForm />
+    </div>
   );
 };
 
