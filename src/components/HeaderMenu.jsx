@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import img from "../assets/pic.jpeg";
 import NotificationModal from "../modals/NotificationModal";
+import { Link } from "react-router-dom";
 
 const HeaderMenu = () => {
   const [hasNotificationExpanded, sethasNotificationExpanded] = useState(false);
@@ -38,7 +39,8 @@ const HeaderMenu = () => {
         </div>
         <div className=" w-1/2 float-right p-2">
           <div className="float-right flex gap-6 ">
-            <div onClick={() => handleItemClick()} className="relative">
+            <Link to="/notifications">
+            <div  className="relative">
               <div class="absolute mx-4 ">
                 <span className="bg-red-500 rounded-full px-2 text-white ">
                   5
@@ -58,9 +60,10 @@ const HeaderMenu = () => {
                   d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
                 />
               </svg>
-              {hasNotificationExpanded && (<NotificationModal />)}
+             
               
             </div>
+            </Link>
             <img
               src={img}
               className="w-8 h-8  object-center object-cover rounded-full"

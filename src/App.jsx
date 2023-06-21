@@ -18,6 +18,8 @@ import ClassPage from "./pages/dashboard/ClassPage";
 import MainDashboard from "./pages/dashboard/MainDashboard";
 import RegisterList from "./pages/Attendance/RegisterList";
 import Attendance from "./layouts/Attendance";
+import MyEvents from "./pages/Attendance/MyEvents";
+import NotificationsPage from "./pages/Attendance/NotificationsPage";
 
 // import ContactPage from './components/ContactPage';
 
@@ -37,9 +39,15 @@ const router = createHashRouter(
       </Route>
       <Route path="/event"
           element={<Attendance />} >
-            <Route path="" element={<RegisterList />} />
+            <Route path="" element={<MyEvents />} />
+            <Route path="detail" element={<RegisterList />} />
+           
             
         </Route>
+        <Route path="notifications" 
+            element={<Attendance />} >
+              <Route path="" element={<NotificationsPage />} />
+            </Route>
       
     </Route>
   )
