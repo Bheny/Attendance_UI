@@ -103,7 +103,7 @@ const RegisterList = () => {
   <path fillRule="evenodd" d="M6.97 2.47a.75.75 0 011.06 0l4.5 4.5a.75.75 0 01-1.06 1.06L8.25 4.81V16.5a.75.75 0 01-1.5 0V4.81L3.53 8.03a.75.75 0 01-1.06-1.06l4.5-4.5zm9.53 4.28a.75.75 0 01.75.75v11.69l3.22-3.22a.75.75 0 111.06 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-4.5-4.5a.75.75 0 111.06-1.06l3.22 3.22V7.5a.75.75 0 01.75-.75z" clipRule="evenodd" />
 </svg>
 </span><span className='hidden'>Sort By</span></button> */}
-    </div>  
+       </div>  
            
            </div>
           <div className="w-full focus:border focus:border-[#016064] bg-gray-100 border-rounded flex gap-3 rounded-lg">
@@ -143,11 +143,8 @@ const RegisterList = () => {
                     <td>{index+1}</td>
                     <td>{item.number}</td>
                     <td>
-                      <select className="p-2 rounded-lg border">
-                        <option>Present</option>
-                        <option>Absent</option>
-                        <option>On Permission</option>
-                      </select>
+                      <input type="radio" className="text-green-700" /> Present 
+                      <input type="radio" className="text-red-700" /> Absent 
                     </td>
                   </tr>
                 ))}
@@ -156,6 +153,7 @@ const RegisterList = () => {
           </div>
         </div>
       </div>
+      
     </>
   );
 };
