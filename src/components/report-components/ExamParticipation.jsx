@@ -87,10 +87,7 @@ const adata = {
 const ExamParticipation = ({ isAttendance }) => {
   return (
     <div className="flex-1 h-[370px] px-10">
-      <Bar
-        options={options}
-        data={isAttendance ? adata : data}
-      />
+      <Bar options={options} data={isAttendance ? adata : data} />
     </div>
   );
 };

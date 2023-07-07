@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Verification from "./biometric/verification";
+import { attendanceList } from "../../lib/students";
 
 const RegisterList = () => {
   const [event, setEventValue] = useState("Departmental Durbar");
@@ -8,57 +9,6 @@ const RegisterList = () => {
   const handleChange = (e) => {
     setEventValue(e.target.value);
   };
-
-  const list = [
-    {
-      id: 1,
-      number: "0319080040",
-    },
-    {
-      id: 3,
-      number: "felix",
-    },
-    {
-      id: 2,
-      number: "louxsdon",
-    },
-    {
-      id: 4,
-      number: "0321001222",
-    },
-    {
-      id: 5,
-      number: "0321001222",
-    },
-    {
-      id: 6,
-      number: "0321001222",
-    },
-    {
-      id: 7,
-      number: "0321001222",
-    },
-    {
-      id: 8,
-      number: "0321001222",
-    },
-    {
-      id: 9,
-      number: "0321001222",
-    },
-    {
-      id: 1,
-      number: "0321001222",
-    },
-    {
-      id: 1,
-      number: "0321001222",
-    },
-    {
-      id: 1,
-      number: "0321001222",
-    },
-  ];
 
   const eventList = [
     "Departmental Durbar",
@@ -76,8 +26,8 @@ const RegisterList = () => {
           </h2>
           <h2 className="text-gray-600">@ G.M Afeti Auditorium</h2>
           <h2 className="flex gap-3 mt-3">
-            <span>Total : {list.length}</span>
-            <span>Present : {list.length}</span>
+            <span>Total : {attendanceList.length}</span>
+            <span>Present : {setStudentsPresents.length}</span>
           </h2>
         </div>
         <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 space-x-0 md:space-x-8">
@@ -149,7 +99,7 @@ const RegisterList = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {list.map((item, index) => {
+                  {attendanceList.map((item, index) => {
                     const present = studentsPresents.some(
                       (s) => s.index === item.number
                     );

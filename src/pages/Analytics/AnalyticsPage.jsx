@@ -9,7 +9,8 @@ import {
 } from "recharts";
 import { Radar } from "react-chartjs-2";
 import AvgPie from "../../components/report-components/AvgPie";
-import ExamParticipation from "../../components/report-components/Examparticipation";
+import ExamParticipation from "../../components/report-components/ExamParticipation.jsx";
+// import ExamParticipation from "../../components/report-components/Examparticipation";
 
 const StudentsPage = () => {
   const chartData = {
@@ -145,16 +146,14 @@ const StudentsPage = () => {
             <ExamParticipation />
           </div>
           <div className="h-full  px-1 py-2 w-full flex items-center">
-            <ResponsiveContainer
-              width={"100%"}
-              height={320}
-              className="">
+            <ResponsiveContainer width={"100%"} height={320} className="">
               <RadarChart
                 width={300}
                 cx="50%"
                 cy="50%"
                 outerRadius="80%"
-                data={radarData}>
+                data={radarData}
+              >
                 <PolarGrid />
                 <PolarAngleAxis dataKey="subject" />
                 <PolarRadiusAxis />

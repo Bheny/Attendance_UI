@@ -27,9 +27,9 @@ const Camera = forwardRef(function ({ ...props }, ref) {
           return camRef.current?.getScreenshot();
         },
         flipCamera() {
-          const mode =
-            facingMode !== "user" ? "user" : { exact: "environment" };
-          setFacingMode(mode);
+          setFacingMode(
+            facingMode === "user" ? { exact: "environment" } : "user"
+          );
         },
       };
     },
