@@ -58,7 +58,7 @@ export function useTinyFaceDetection(
   const detectFace = async () => {
     setStartedEnrollment(true);
     const canvas = canvasRef.current;
-    const video = webcamRef.current?.video;
+    const video = webcamRef.current?.video();
     // detect faces in the camera
     const camResults =
       typeof video !== "undefined"
@@ -66,7 +66,7 @@ export function useTinyFaceDetection(
             .detectAllFaces(
               video,
               new faceapi.TinyFaceDetectorOptions({
-                scoreThreshold: 0.7,
+                // scoreThreshold: 0.7,
                 inputSize: 160,
               })
             )
@@ -87,7 +87,7 @@ export function useTinyFaceDetection(
           .detectSingleFace(
             img,
             new faceapi.TinyFaceDetectorOptions({
-              scoreThreshold: 0.7,
+              // scoreThreshold: 0.7,
               inputSize: 160,
             })
           )
@@ -147,10 +147,9 @@ export function useTinyFaceDetection(
     (async () => {
       await faceapi.nets.tinyFaceDetector.loadFromUri("/models");
       await faceapi.nets.faceLandmark68TinyNet.loadFromUri("/models");
-      await faceapi.nets.faceExpressionNet.loadFromUri("/models");
       await faceapi.nets.faceRecognitionNet.loadFromUri("/models");
     })();
-  }, [startedEnrollment]);
+  }, []);
 
   return {
     detectFace,

@@ -8,6 +8,7 @@ import Webcam from "react-webcam";
 
 const Camera = forwardRef(function ({ ...props }, ref) {
   const [facingMode, setFacingMode] = useState("user");
+  const camRef = useRef(null);
 
   const videoConstraints = {
     width: 350,
@@ -15,17 +16,32 @@ const Camera = forwardRef(function ({ ...props }, ref) {
     facingMode: facingMode ? facingMode : "user",
   };
 
-  const flipCamera = () => {
-    const mode = facingMode !== "user" ? "user" : { exact: "environment" };
-    setFacingMode(mode);
-  };
+  useImperativeHandle(
+    ref,
+    () => {
+      return {
+        video() {
+          return camRef.current?.video;
+        },
+        getScreenshot() {
+          return camRef.current?.getScreenshot();
+        },
+        flipCamera() {
+          const mode =
+            facingMode !== "user" ? "user" : { exact: "environment" };
+          setFacingMode(mode);
+        },
+      };
+    },
+    []
+  );
 
   return (
     <Webcam
       width={250}
       height={250}
       audio={false}
-      ref={ref}
+      ref={camRef}
       screenshotFormat="image/jpeg"
       {...props}
       videoConstraints={videoConstraints}
@@ -33,5 +49,7 @@ const Camera = forwardRef(function ({ ...props }, ref) {
     />
   );
 });
+
+Camera.displayName = "Camera";
 
 export default Camera;
