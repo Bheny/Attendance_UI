@@ -28,14 +28,14 @@ export const options = {
 };
 
 const labels = [
-  "Math",
-  "Science",
-  "English",
-  "History",
-  "Deutsch",
-  "Creative Arts",
-  "Computer Science",
-  "Sex Education",
+  "Discrete Math",
+  "D.S.A",
+  "Javascript",
+  "Mobile Prog.",
+  "Networks",
+  "Web Dev",
+  "IoT",
+  "A.I",
 ];
 
 const alabels = [
@@ -57,14 +57,14 @@ const data = {
   labels: labels,
   datasets: [
     {
-      label: "Pass",
+      label: "Male",
       data: [80, 60, 60, 90, 55, 40, 93, 60],
-      backgroundColor: "#1DE9B6",
+      backgroundColor: "#1F48A1",
     },
     {
-      label: "fail",
+      label: "Female",
       data: [40, 20, 10, 14, 12, 22, 43, 10],
-      backgroundColor: "#FF8142",
+      backgroundColor: "#0FDD5F",
     },
   ],
 };
@@ -86,7 +86,7 @@ const adata = {
 };
 const ExamParticipation = ({ isAttendance }) => {
   return (
-    <div className="flex-1 h-[400px] px-10">
+    <div className="flex-1 h-[370px] px-10">
       <Bar
         options={options}
         data={isAttendance ? adata : data}

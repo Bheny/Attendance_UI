@@ -37,56 +37,56 @@ const StudentsPage = () => {
     datasets: [
       {
         data: [30, 40],
-        backgroundColor: ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"],
+        backgroundColor: ["#0088FE", "#0FDD5F", "#FFBB28", "#FF8042"],
       },
     ],
   };
 
   const radarData = [
     {
-      subject: "Math",
+      subject: "D.Math",
       A: 120,
       B: 110,
       fullMark: 150,
     },
     {
-      subject: "Science",
+      subject: "D.S.A",
       A: 98,
       B: 130,
       fullMark: 150,
     },
     {
-      subject: "English",
+      subject: "Js",
       A: 86,
       B: 130,
       fullMark: 150,
     },
     {
-      subject: "History",
+      subject: "Mobile P.",
       A: 99,
       B: 100,
       fullMark: 150,
     },
     {
-      subject: "Deutsch",
+      subject: "Networks",
       A: 85,
       B: 90,
       fullMark: 150,
     },
     {
-      subject: "Creative Arts",
+      subject: "Web Dev",
       A: 65,
       B: 85,
       fullMark: 150,
     },
     {
-      subject: "C. Science",
+      subject: "IoT",
       A: 65,
       B: 85,
       fullMark: 150,
     },
     {
-      subject: "Sex Education",
+      subject: "A.I",
       A: 65,
       B: 85,
       fullMark: 150,
