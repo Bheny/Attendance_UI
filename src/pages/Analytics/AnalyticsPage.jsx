@@ -10,7 +10,8 @@ import {
 import { Radar } from "react-chartjs-2";
 import AvgPie from "../../components/report-components/AvgPie";
 import ExamParticipation from "../../components/report-components/ExamParticipation.jsx";
-// import ExamParticipation from "../../components/report-components/Examparticipation";
+// import ExamParticipation from "../../components/report-components/ExamParticipation";
+import Radarr from "../../components/report-components/Radarr.jsx";
 
 const StudentsPage = () => {
   const chartData = {
@@ -93,6 +94,9 @@ const StudentsPage = () => {
       fullMark: 150,
     },
   ];
+
+  const labels = radarData.map((d) => d.subject);
+  const data = radarData.map((d) => d.subject);
 
   return (
     <div className="grid grid-cols-2 gap-6 p-8 ">
