@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as faceapi from "face-api.js";
 import { toast } from "react-toastify";
+import { students } from "../students";
 
 const CAPTURE_SCORE = 0.45;
 
@@ -67,19 +68,16 @@ export function useTinyFaceDetection(
               video,
               new faceapi.TinyFaceDetectorOptions({
                 // scoreThreshold: 0.7,
-                inputSize: 160,
+                // inputSize: 160,
               })
             )
             .withFaceLandmarks(true)
             .withFaceDescriptors()
         : null;
 
-    // students names / index numbers
-    const labels = ["0319080040", "louxsdon", "felix"]; // can be array of json objects [{index: 1234, image: "images/jake.jpg"}]
-
     // get all students images and labels
     const labeledFaceDescriptors = await Promise.all(
-      labels.map(async (label) => {
+      students.map(async (label) => {
         const imgUrl = `/students/${label}.jpg`;
         const img = await faceapi.fetchImage(imgUrl);
 
@@ -88,7 +86,7 @@ export function useTinyFaceDetection(
             img,
             new faceapi.TinyFaceDetectorOptions({
               // scoreThreshold: 0.7,
-              inputSize: 160,
+              // inputSize: 160,
             })
           )
           .withFaceLandmarks(true)
