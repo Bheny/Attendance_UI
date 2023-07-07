@@ -33,7 +33,7 @@ const Camera = forwardRef(function ({ ...props }, ref) {
         },
       };
     },
-    []
+    [facingMode]
   );
 
   return (
