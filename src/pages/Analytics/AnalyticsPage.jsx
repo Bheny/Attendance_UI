@@ -9,7 +9,7 @@ import {
 } from "recharts";
 import { Radar } from "react-chartjs-2";
 import AvgPie from "../../components/report-components/AvgPie";
-import ExamParticipation from "../../components/report-components/Examparticipation";
+import ExamParticipation from "../../components/report-components/ExamParticipation";
 
 const StudentsPage = () => {
   const chartData = {
