@@ -1,4 +1,117 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
+/* 
+
+nk-circle-animation small nk-df-center fast
+
+*/
+
+.nk-df-center,
+.abs-center,
+.nk-block-video-play {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nk .nk-circle-animation.small:before,
+.nk-circle-animation.small:after {
+  border-width: 2px;
+}
+
+.nk-circle-animation.fast:before {
+  animation: rotatecw 2s linear infinite 0s;
+}
+
+.nk-circle-animation.fast:after {
+  animation: rotateacw 2s linear infinite 0s;
+}
+
+.nk-circle-animation {
+  max-height: 230px;
+  max-width: 230px;
+  z-index: 1;
+}
+
+.nk-circle-animation + * {
+  position: relative;
+  z-index: 1;
+}
+.nk-circle-animation {
+  height: 500px;
+  width: 500px;
+  overflow: hidden;
+}
+
+.nk-circle-animation:before,
+.nk-circle-animation:after {
+  position: absolute;
+  content: "";
+  border: 3px solid rgba(140, 247, 255, 0.301);
+  border-radius: 50%;
+}
+
+.nk-circle-animation:before {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-top-color: #168dfd;
+  border-bottom-color: #168dfd;
+  animation: rotatecw 30s linear infinite 0s;
+}
+
+.nk-circle-animation:after {
+  top: 25px;
+  left: 25px;
+  bottom: 25px;
+  right: 25px;
+  border-top-color: #168dfd;
+  border-bottom-color: #168dfd;
+  animation: rotateacw 24s linear infinite 0s;
+}
+
+@media (min-width: 576px) {
+  .nk-circle-animation {
+    height: 500px;
+    width: 500px;
+    overflow: hidden;
+  }
+  .nk-circle-animation:after {
+    top: 45px;
+    left: 45px;
+    bottom: 45px;
+    right: 45px;
+  }
+  .nk-circle-animation.small {
+    height: 400px;
+    width: 400px;
+  }
+  .nk-circle-animation.small:after {
+    top: 35px;
+    left: 35px;
+    bottom: 35px;
+    right: 35px;
+  }
+}
+
+@keyframes rotatecw {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateacw {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
