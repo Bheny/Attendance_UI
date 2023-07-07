@@ -115,3 +115,11 @@ nk-circle-animation small nk-df-center fast
     transform: rotate(-360deg);
   }
 }
+
+.new-card {
+  @apply flex-1 h-[450px] bg-white px-5 rounded-3xl py-3;
+}
+
+.addborder {
+  @apply border-[1px] border-gray-300;
+}
