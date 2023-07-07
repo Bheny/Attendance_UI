@@ -13,7 +13,7 @@ const Camera = forwardRef(function ({ ...props }, ref) {
   const videoConstraints = {
     width: 350,
     height: 350,
-    facingMode: facingMode ? facingMode : "user",
+    facingMode: facingMode,
   };
 
   useImperativeHandle(
