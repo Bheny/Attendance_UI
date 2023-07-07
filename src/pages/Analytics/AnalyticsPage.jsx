@@ -137,7 +137,7 @@ const StudentsPage = () => {
       </div>
 
       <div className="flex-1 h-[470px] bg-white px-5 pt-6 rounded-3xl flex justify-start items-start flex-col col-span-2 ">
-        <h2 className="text-3xl text-gray-800 font-bold mb-4 ml-5">
+        <h2 className="text-2xl text-gray-700 font-bold mb-4 ml-5">
           Examination Participation
         </h2>
         <div className="w-full grid grid-cols-3">
