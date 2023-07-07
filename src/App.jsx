@@ -24,6 +24,7 @@ import NotificationsPage from "./pages/Attendance/NotificationsPage";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import AnalyticsPage from "./pages/Analytics/AnalyticsPage";
 
 // import ContactPage from './components/ContactPage';
 
@@ -36,6 +37,7 @@ const router = createHashRouter(
         <Route path="myEvents" element={<EventsPage />} />
         <Route path="classes" element={<ClassPage />} />
         <Route path="students" element={<StudentPage />} />
+        <Route path="analytics" element={<AnalyticsPage />} />
       </Route>
       <Route path="/event" element={<Attendance />}>
         <Route path="" element={<MyEvents />} />
