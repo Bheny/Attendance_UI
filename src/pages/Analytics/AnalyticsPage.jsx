@@ -10,6 +10,7 @@ import {
 import { Radar } from "react-chartjs-2";
 import AvgPie from "../../components/report-components/AvgPie";
 import ExamParticipation from "../../components/report-components/ExamParticipation";
+import Radarr from "../../components/report-components/Radarr.jsx";
 
 const StudentsPage = () => {
   const chartData = {
@@ -93,6 +94,9 @@ const StudentsPage = () => {
     },
   ];
 
+  const labels = radarData.map((d) => d.subject);
+  const data = radarData.map((d) => d.subject);
+
   return (
     <div className="grid grid-cols-2 gap-6 p-8 ">
       <div className="new-card pl-5 flex justify-start items-start flex-row pt-4 col-span-2 sm:col-span-1">
@@ -144,28 +148,15 @@ const StudentsPage = () => {
           <div className="col-span-2">
             <ExamParticipation />
           </div>
-          <div className="h-full  px-1 py-2 w-full flex items-center">
+          <div className="h-full  px-1 py-2 w-full flex items-center justify-center">
             <ResponsiveContainer
               width={"100%"}
               height={320}
-              className="">
-              <RadarChart
-                width={300}
-                cx="50%"
-                cy="50%"
-                outerRadius="80%"
-                data={radarData}>
-                <PolarGrid />
-                <PolarAngleAxis dataKey="subject" />
-                <PolarRadiusAxis />
-                <Radar
-                  name="Mike"
-                  dataKey="A"
-                  stroke="#8884d8"
-                  fill="#8884d8"
-                  fillOpacity={0.6}
-                />
-              </RadarChart>
+              className=" flex justify-center">
+              <Radarr
+                label={labels}
+                dat={data}
+              />
             </ResponsiveContainer>
           </div>
         </div>
