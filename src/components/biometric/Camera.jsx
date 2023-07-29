@@ -11,10 +11,11 @@ const Camera = forwardRef(function ({ ...props }, ref) {
   const camRef = useRef(null);
 
   const videoConstraints = {
-    width: 350,
-    height: 350,
+    width: window.innerWidth,
+    height: window.innerHeight,
     facingMode: facingMode,
   };
+  console.log(videoConstraints);
 
   useImperativeHandle(
     ref,
@@ -22,9 +23,6 @@ const Camera = forwardRef(function ({ ...props }, ref) {
       return {
         video() {
           return camRef.current?.video;
-        },
-        getScreenshot() {
-          return camRef.current?.getScreenshot();
         },
         flipCamera() {
           setFacingMode(
@@ -37,16 +35,20 @@ const Camera = forwardRef(function ({ ...props }, ref) {
   );
 
   return (
-    <Webcam
-      width={250}
-      height={250}
-      audio={false}
-      ref={camRef}
-      screenshotFormat="image/jpeg"
-      {...props}
-      videoConstraints={videoConstraints}
-      // mirrored={facingMode === "user"}
-    />
+    <>
+      <Webcam
+        ref={camRef}
+        audio={false}
+        width={videoConstraints.width}
+        height={videoConstraints.height}
+        screenshotFormat="image/jpeg"
+        {...props}
+        videoConstraints={videoConstraints}
+        allowFullScreen={true}
+        allowTransparency={true}
+        className="w-full h-[90vh]"
+      />
+    </>
   );
 });
 

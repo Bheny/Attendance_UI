@@ -67,8 +67,8 @@ export function useTinyFaceDetection(
             .detectAllFaces(
               video,
               new faceapi.TinyFaceDetectorOptions({
-                scoreThreshold: 0.7,
-                inputSize: 160,
+                scoreThreshold: 0.2,
+                // inputSize: 160,
               })
             )
             .withFaceLandmarks(true)
@@ -85,8 +85,8 @@ export function useTinyFaceDetection(
           .detectSingleFace(
             img,
             new faceapi.TinyFaceDetectorOptions({
-              scoreThreshold: 0.7,
-              inputSize: 160,
+              // scoreThreshold: 0.7,
+              // inputSize: 160,
             })
           )
           .withFaceLandmarks(true)
