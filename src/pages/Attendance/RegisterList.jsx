@@ -1,24 +1,14 @@
 import React, { useState } from "react";
-import Verification from "./biometric/verification";
 import { attendanceList } from "../../lib/students";
+import { Link } from "react-router-dom";
 
 const RegisterList = () => {
   const [event, setEventValue] = useState("Departmental Durbar");
   const [studentsPresents, setStudentsPresents] = useState([]);
 
-  const handleChange = (e) => {
-    setEventValue(e.target.value);
-  };
-
-  const eventList = [
-    "Departmental Durbar",
-    "Database Class",
-    "System Administration",
-    "Vb programming",
-  ];
   return (
     <>
-      <div className="p-4 bg-gray-100 shadow-xl sm:w-full md:w-1/2 mx-auto">
+      <div className="p-4 bg-gray-100 sm:w-full md:w-1/2 mx-auto">
         <div className="mb-4 bg-white rounded-lg  p-4 ">
           <h2 className="text-2xl font-bold text-gray-700 ">
             {/* Departmental Durbar Attendance */}
@@ -31,14 +21,14 @@ const RegisterList = () => {
           </h2>
         </div>
         <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 space-x-0 md:space-x-8">
-          <div className="bg-white rounded-lg p-4 shadow-xl w-full md:w-1/2 mx-auto">
+          <div className="bg-white rounded-lg p-4 w-full md:w-1/3 mx-auto">
             {/*
              *** Verification Component
              */}
-            <Verification onVerified={setStudentsPresents} />
+            <BiometricDisplay />
             {/* End: verification */}
           </div>
-          <div className="bg-white rounded-lg p-4 shadow-xl w-full md:w-1/2 mx-auto">
+          <div className="bg-white rounded-lg p-4 w-full md:w-2/3 mx-auto">
             <div className="flex py-4 relative">
               <span className="text-gray-700 font-bold text-xl w-1/3">
                 List
@@ -144,3 +134,37 @@ const RegisterList = () => {
 };
 
 export default RegisterList;
+
+function BiometricDisplay() {
+  return (
+    <div className="h-full flex justify-center items-center p-6 px-12 bg-blue-100 rounded-lg">
+      <div className="mx-auto text-center  ">
+        <h1 className="text-lg font-bold text-indigo-900 uppercase mb-4">
+          Biometric Attendance
+        </h1>
+
+        <div
+          className={`relative w-[250px] h-[250px] bg-[#020330] flex items-center justify-center rounded-3xl 
+          border-4 border-[#168dfd] !overflow-hidden`}
+        >
+          <img
+            src="/imgs/face-verification-1.jpg"
+            alt="Detected Face"
+            width="250"
+            height="250"
+          />
+        </div>
+        <div className="mt-5">
+          <Link
+            to={"/biometric/attendance"}
+            className={`w-full px-6 py-2 inline-block rounded-md ring
+              bg-gradient-to-r from-[#440986] via-[#2319eb] 
+              to-[#0077ff] text-blue-100`}
+          >
+            Start Attendance
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
