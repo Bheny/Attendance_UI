@@ -24,6 +24,9 @@ const Camera = forwardRef(function ({ ...props }, ref) {
         video() {
           return camRef.current?.video;
         },
+        getScreenshot() {
+          return camRef.current?.getScreenshot();
+        },
         flipCamera() {
           setFacingMode(
             facingMode === "user" ? { exact: "environment" } : "user"
