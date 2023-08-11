@@ -1,10 +1,25 @@
-import { React, useState } from "react";
+import { React, useState,useEffect } from "react";
 import img from "../assets/pic.jpeg";
 import NotificationModal from "../modals/NotificationModal";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/auth";
 
 const HeaderMenu = () => {
   const [hasNotificationExpanded, sethasNotificationExpanded] = useState(false);
+  const { user, logout, profile } = useAuth();
+  const [pimage, setPImage] = useState(null);
+  const res = JSON.parse(localStorage.getItem("userProfile"));
+  const host = import.meta.env.VITE_HOST_URL;
+
+  useEffect(() => {
+    if (res?.image?.includes(host)) {
+      setPImage(res?.image);
+    } else {
+      setPImage(host + res?.image);
+    }
+  }, []);
+
+
   
   const handleItemClick = () => {
     sethasNotificationExpanded(!hasNotificationExpanded);
@@ -65,12 +80,12 @@ const HeaderMenu = () => {
             </div>
             </Link>
             <img
-              src={img}
-              className="w-8 h-8  object-center object-cover rounded-full"
-              alt="profile_picture"
-            />
+            src={profile?.image ? pimage : img}
+            alt="Admin"
+            className="w-8 h-8  object-center object-cover rounded-full"
+          />
             <span className="hidden md:block text-gray-700 font-bold text-center">
-              WinniFred Amuzu
+            {profile?.user.first_name} {profile?.user.last_name}
             </span>
           </div>
         </div>

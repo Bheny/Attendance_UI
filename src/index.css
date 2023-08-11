@@ -123,3 +123,27 @@ nk-circle-animation small nk-df-center fast
 .addborder {
   @apply border-[1px] border-gray-300;
 }
+
+
+.custom-loader {
+  width: 24px;
+  height: 24px;
+  background: #3034ff;
+  border-radius: 50%;
+  box-shadow: 40px 0 #3034ff22, -40px 0 #3034ff;
+  animation: d5 1s infinite linear alternate;
+}
+@keyframes d5 {
+  0% {
+    box-shadow: 40px 0 #3034ff, -40px 0 #3034ff22;
+    background: #3034ff;
+  }
+  33% {
+    box-shadow: 40px 0 #3034ff, -40px 0 #3034ff22;
+    background: #3034ff22;
+  }
+  66% {
+    box-shadow: 40px 0 #3034ff22, -40px 0 #3034ff;
+    background: #3034ff22;
+  }
+}

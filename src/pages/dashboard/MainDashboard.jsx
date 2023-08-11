@@ -6,8 +6,10 @@ import OngoingClasses from "../../components/OngoingClasses";
 import NotificationWidget from "../../components/widgets/NotificationWidget";
 import ClassStudents from "../../components/ClassStudents";
 import AttendanceStatistics from "../../components/AttendanceStatistics";
+import { useAuth } from "../../context/auth";
 
 const MainDashboard = () => {
+  const {profile} = useAuth()
   const moodTrendData = [
     { rating: 3, date: "2023-06-01" },
     { rating: 4, date: "2023-06-02" },
