@@ -51,7 +51,7 @@ const SideBar = () => {
       link: "/dashboard",
     },
     {
-      title: "Take Attendance",
+      title: "Attendance",
       fa: (
         <svg
           xmlns="http://www.w3.org/2000/svg"

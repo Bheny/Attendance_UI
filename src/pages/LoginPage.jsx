@@ -16,7 +16,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     if (username.trim() === "" || password === "") {
-      swal("SchoolSync Login", "All fields are required", "warning");
+      swal("Attendance Sys Login", "All fields are required", "warning");
       return;
     }
 
@@ -33,19 +33,26 @@ const LoginPage = () => {
     }
     if (user) {
       swal(
-        "SchoolSync",
+        "Attendance Sys",
         `Welcome ${user?.profile.user.first_name} ${user?.profile.user.last_name}`,
         "success"
       );
     }
 
-    if (user.profile.role === 1) {
+    if (user.profile) {
       navigate("dashboard");
-    } else if (user.profile.role === 2) {
-      navigate("dashboard/teacher");
     } else {
-      navigate("dashboard/parent");
+      swal(
+        "Attendance Sys",
+        `No Profile for this user`,
+        "error"
+      );
     }
+    // } else if (user.profile.role === 2) {
+    //   navigate("dashboard/teacher");
+    // } else {
+    //   navigate("dashboard/parent");
+    // }
     setIsLoading(false);
     // navigate("dashboard/admin");
   };

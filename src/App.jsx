@@ -27,6 +27,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AnalyticsPage from "./pages/Analytics/AnalyticsPage";
 import BiometricAttendance from "./pages/Attendance/biometric/attendance";
 import { AuthProvider } from "./context/auth";
+import RegistrationPage from "./pages/RegistrationPage";
 
 // import ContactPage from './components/ContactPage';
 
@@ -34,6 +35,7 @@ const router = createHashRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<LoginPage />} />
+      <Route path="/register" element={<RegistrationPage />} />
       <Route path="/dashboard" element={<DashboardPageLayout />}>
         <Route index element={<MainDashboard />} />
         <Route path="myEvents" element={<EventsPage />} />
